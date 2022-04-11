@@ -1,12 +1,15 @@
-﻿Generating Images with Wasserstein GANs![](figures/Aspose.Words.235121bd-5556-4926-818d-c214bf8dcc5f.001.png)
+﻿# Generating Images with Wasserstein GANs # 
+<!-- ![](figures/Aspose.Words.235121bd-5556-4926-818d-c214bf8dcc5f.001.png) -->
+
+A peice of work submited as part of the 'Deep Learning and Reincforcement Learning' module within the Durham University Computer Science departemnt. 
 
 @b-d-e
 
-Abstract
+**Abstract**
 
 This work explores the use of a Wasserstein Generative Adversarial Network (hereafter ’WGAN’) to generate novel images based on a large dataset. It explores initial attempts with a WGAN and the reasoning that lead to the introduction of a Gradient Penalty along with other improvements, then discusses the potential for future work.
 
-1  Methodology
+**1  Methodology**
 
 A natural starting point for this project was to consider a simple GAN, training a Generator and Discriminator against each other in such a way that the difference between discriminator output and the true input value type (genuine or synthesised) is minimised. However, a GAN in itself is a naive approach, suffering from a high probably of ’mode collapse’ (training weights collapsing such that the generator consistently produces a small set of similar samples), among other issues[[2\].](#_page3_x108.00_y688.24)
 
@@ -24,9 +27,7 @@ L = −Ex∼P [D(x)] + Ex˜∼P [D(x˜)] + λ ·Ex˜∼P [(||∇x˜ D(x˜)||2 �
 
 real generator x˜
 
-A final improvement to the method implemented was to normalise the images being entered into the model with the distribution X ∼ N(0.5,0.5) [\[3\].](#_page4_x108.00_y81.86) This lead to much faster conver- gence of the model, and outputted images were returned to their original value space with
-
-the distribution X˜ ∼ N(−1,2).
+A final improvement to the method implemented was to normalise the images being entered into the model with the distribution X ∼ N(0.5,0.5) [\[3\].](#_page4_x108.00_y81.86) This lead to much faster conver- gence of the model, and outputted images were returned to their original value space with the distribution X˜ ∼ N(−1,2).
 
 Combined, this lead to the creation of the WGAN-GP architecture as shown in Figure 2.![](figures/Aspose.Words.235121bd-5556-4926-818d-c214bf8dcc5f.001.png)
 
@@ -34,7 +35,7 @@ Combined, this lead to the creation of the WGAN-GP architecture as shown in Figu
 
 Figure 2: The WGAN-GP Architecture used
 
-2  Results
+**2  Results **
 
 The model was written in PyTorch and (after initial experiments on the MNIST and CIFAR- 10 datasets to test for convergence) were executed with the STL-10 dataset at a 96x96 resolution.
 
@@ -52,7 +53,7 @@ And here are some cherry-picked samples that show the best outputs the model has
 
 ![](figures/Aspose.Words.235121bd-5556-4926-818d-c214bf8dcc5f.006.png)
 
-3  Limitations![](figures/Aspose.Words.235121bd-5556-4926-818d-c214bf8dcc5f.001.png)
+**3  Limitations**![](figures/Aspose.Words.235121bd-5556-4926-818d-c214bf8dcc5f.001.png)
 
 While the model does produce distinct objects, to the human eye these are not realistic and it is easy to distinguish them from the training data. One potential factor in this may have been due to a lack of capacity in the neural network - the changes made to the model’s layer weights when changing from CIFAR-10 to STL-10 could have been more substantial in adding more layers / increasing the capacity of each layer to cope with the more complex distributions. However, a conscious decision to not do so was made due to time limitations - increasing the model complexity by even 1 layer would have added a substantial increase to training time which could unfortunately not be afforded.
 
@@ -60,11 +61,7 @@ Another limitation is the lack of conditionally - that is, the model is unable t
 
 If future work were to be undertaken on these models, I would experiment with how batches are handled (for instance removing or altering the batch normalisation processes) and would run several trials with various layer connectivity setups within the neural network to find the best training-time/result-quality balance.
 
-Bonuses
-
-This submission has a total bonus of -2 marks (a penalty), as it utilises adversarial training (-4) but does train on STL-10 at 96x96 pixels (+2).
-
-References
+**References**
 
 1. Martin Arjovsky, Soumith Chintala, and L´eon Bottou. Wasserstein GAN. 2017. doi: [10.48550/ARXIV.1701.07875. url](https://doi.org/10.48550/ARXIV.1701.07875): [https://arxiv.org/abs/1701.07875.](https://arxiv.org/abs/1701.07875)
 2. Martin Arjovsky, Soumith Chintala, and L´eon Bottou. “Wasserstein Generative Ad- versarial Networks”. In: Proceedings of the 34th International Conference on Machine Learning - Volume 70. ICML’17. Sydney, NSW, Australia: JMLR.org, 2017, pp. 214– 223.
