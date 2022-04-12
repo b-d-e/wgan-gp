@@ -5,6 +5,8 @@ A peice of work submited as part of the 'Deep Learning and Reincforcement Learni
 
 @b-d-e
 
+![](figures/croppedlearning.gif)
+
 **Abstract**
 
 This work explores the use of a Wasserstein Generative Adversarial Network (hereafter ’WGAN’) to generate novel images based on a large dataset. It explores initial attempts with a WGAN and the reasoning that lead to the introduction of a Gradient Penalty along with other improvements, then discusses the potential for future work.
