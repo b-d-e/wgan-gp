@@ -57,7 +57,7 @@ And here are some cherry-picked samples that show the best outputs the model has
 
 **3  Limitations**![](figures/Aspose.Words.235121bd-5556-4926-818d-c214bf8dcc5f.001.png)
 
-While the model does produce distinct objects, to the human eye these are not realistic and it is easy to distinguish them from the training data. One potential factor in this may have been due to a lack of capacity in the neural network - the changes made to the model’s layer weights when changing from CIFAR-10 to STL-10 could have been more substantial in adding more layers / increasing the capacity of each layer to cope with the more complex distributions. However, a conscious decision to not do so was made due to time limitations - increasing the model complexity by even 1 layer would have added a substantial increase to training time which could unfortunately not be afforded.
+While the model does produce distinct objects, to the human eye these are not realistic and it is easy to distinguish them from the training data. One potential factor in this may have been due to a lack of capacity in the neural network - the changes made to the model’s layer weights when changing from CIFAR-10 to STL-10 could have been more substantial in adding more layers / increasing the capacity of each layer to cope with the more complex distributions.
 
 Another limitation is the lack of conditionally - that is, the model is unable to distinguish between classes of objects in it’s latent space (e.g. ’bird’ vs ’dog’ vs ’ship’) and generate them on demand, nor to generate the classes proportionally in the sampling. This is caused by the architecture of the model used, and would require significant alterations to be able to respect object classes.
 
